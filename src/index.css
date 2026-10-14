@@ -1,0 +1,122 @@
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@fontsource/baloo-2/500.css';
+@import '@fontsource/baloo-2/600.css';
+@import '@fontsource/baloo-2/700.css';
+@import '@fontsource/baloo-2/800.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Baloo 2', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --bg-main: #f8fafc;
+    --text-main: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.94);
+    --card-border: rgba(226, 232, 240, 0.9);
+  }
+
+  .dark {
+    --bg-main: #0b1120;
+    --text-main: #f8fafc;
+    --card-bg: rgba(15, 23, 42, 0.92);
+    --card-border: rgba(51, 65, 85, 0.7);
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Highly Optimized GPU Glass Cards (Butter-Smooth 60+ FPS) */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+.dark .glass-card {
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.2);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.dark .glass-pill {
+  background: rgba(30, 41, 59, 0.88);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+}
+
+/* GPU Composited Keyframe Animations (0% JS CPU) */
+@keyframes floatEmoji {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(6deg);
+  }
+}
+
+@keyframes spinClock {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.clock-minute-hand {
+  transform-origin: 50px 50px;
+  animation: spinClock 12s linear infinite;
+  will-change: transform;
+}
+
+.clock-hour-hand {
+  transform-origin: 50px 50px;
+  animation: spinClock 72s linear infinite;
+  will-change: transform;
+}
+
+/* Custom scrollbar for inner scroll containers */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
